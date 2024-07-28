@@ -136,15 +136,15 @@ export const BackgroundBeams = React.memo(
                         >
                             <stop
                                 offset='0.0666667'
-                                stopColor='var(--neutral-300)'
+                                stopColor='var(--foreground-700)'
                             ></stop>
                             <stop
                                 offset='0.243243'
-                                stopColor='var(--neutral-300)'
+                                stopColor='var(--foreground-700)'
                             ></stop>
                             <stop
                                 offset='0.43594'
-                                stopColor='white'
+                                stopColor='var(--background-950)'
                                 stopOpacity='0'
                             ></stop>
                         </radialGradient>

@@ -11,8 +11,6 @@ const fontSans = FontSans({
 });
 
 // TODO: Change Metadata when generating content
-// TODO: Apply Pallette
-// TODO: Change Grid BG
 
 export const metadata: Metadata = {
     title: "Mohamed's Portfolio",
@@ -34,7 +32,7 @@ export default function RootLayout({
             >
                 <ThemeProvider
                     attribute='class'
-                    defaultTheme='dark'
+                    defaultTheme='light'
                     enableSystem
                     disableTransitionOnChange
                 >
