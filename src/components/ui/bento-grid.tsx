@@ -82,7 +82,7 @@ export const BentoGridItem = ({
                     )}
                 </div>
                 <div
-                    className={`absolute -bottom-8 right-0 ${
+                    className={`absolute -bottom-4 right-0 md:-bottom-8 ${
                         id === 5 && 'w-full opacity-80'
                     }`}
                 >
