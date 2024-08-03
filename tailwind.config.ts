@@ -41,9 +41,16 @@ const config = {
       fontFamily: {
         sans: ["var(--font-sans)"],
       },
+      backgroundImage: {
+        'gradient-linear-primary-secondary': 'var(--linearPrimarySecondary)',
+        'gradient-linear-primary-accent': 'var(--linearPrimaryAccent)',
+        'gradient-linear-secondary-accent': 'var(--linearSecondaryAccent)',
+        'gradient-radial-primary-secondary': 'var(--radialPrimarySecondary)',
+        'gradient-radial-primary-accent': 'var(--radialPrimaryAccent)',
+        'gradient-radial-secondary-accent': 'var(--radialSecondaryAccent)',
+      },
       colors: {
         border: "var(--border)",
-        input: "var(--input)",
         ring: "var(--ring)",
         background: {
           DEFAULT: 'var(--background-50)',

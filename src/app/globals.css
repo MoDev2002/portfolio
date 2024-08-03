@@ -69,6 +69,28 @@
         --border: hsl(240, 8%, 30%);
         --ring: hsl(255, 76%, 51%);
         --radius: 0.5rem;
+
+        --linearPrimarySecondary: linear-gradient(
+            hsl(255, 76%, 51%),
+            hsl(252, 84%, 66%)
+        );
+        --linearPrimaryAccent: linear-gradient(hsl(255, 76%, 51%));
+        --linearSecondaryAccent: linear-gradient(
+            hsl(252, 84%, 66%),
+            hsl(252, 96%, 45%)
+        );
+        --radialPrimarySecondary: radial-gradient(
+            hsl(255, 76%, 51%),
+            hsl(252, 84%, 66%)
+        );
+        --radialPrimaryAccent: radial-gradient(
+            hsl(255, 76%, 51%),
+            hsl(252, 96%, 45%)
+        );
+        --radialSecondaryAccent: radial-gradient(
+            hsl(252, 84%, 66%),
+            hsl(252, 96%, 45%)
+        );
     }
     .dark {
         --foreground-50: hsl(240, 8%, 5%);
@@ -140,6 +162,31 @@
         --border: hsl(240, 9%, 85%);
         --ring: hsl(255, 76%, 49%);
         --radius: 0.5rem;
+
+        --linearPrimarySecondary: linear-gradient(
+            hsl(255, 76%, 49%),
+            hsl(252, 84%, 34%)
+        );
+        --linearPrimaryAccent: linear-gradient(
+            hsl(255, 76%, 49%),
+            hsl(252, 96%, 55%)
+        );
+        --linearSecondaryAccent: linear-gradient(
+            hsl(252, 84%, 34%),
+            hsl(252, 96%, 55%)
+        );
+        --radialPrimarySecondary: radial-gradient(
+            hsl(255, 76%, 49%),
+            hsl(252, 84%, 34%)
+        );
+        --radialPrimaryAccent: radial-gradient(
+            hsl(255, 76%, 49%),
+            hsl(252, 96%, 55%)
+        );
+        --radialSecondaryAccent: radial-gradient(
+            hsl(252, 84%, 34%),
+            hsl(252, 96%, 55%)
+        );
     }
 }
 
@@ -150,5 +197,36 @@
     body {
         @apply bg-background text-foreground;
     }
+}
+
+.card-shine-effect {
+    --shine-deg: 45deg;
+    background-repeat: no-repeat;
+    background-position:
+        -100% 0,
+        0 0;
+
+    background-image: linear-gradient(
+        var(--shine-deg),
+        transparent 20%,
+        transparent 40%,
+        rgb(68, 68, 68, 0.2) 50%,
+        rgb(68, 68, 68, 0.2) 55%,
+        transparent 70%,
+        transparent 100%
+    );
+
+    background-size:
+        250% 250%,
+        100% 100%;
+
+    transition: background-position 0s ease;
+}
+
+.card-shine-effect:hover {
+    background-position:
+        200%0,
+        0 0;
+    transition-duration: 1.5s;
 }
 
