@@ -1,15 +1,8 @@
 'use client';
 
-import confettiAnimation from '@/data/confetti-new.json';
-import { techStackLeft, techStackRight } from '@/data/tech-stack';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
-import { useState } from 'react';
-import { IoCopyOutline } from 'react-icons/io5';
-import Lottie from 'react-lottie';
-import { BackgroundGradientAnimation } from './background-gradient-animation';
-import { GridGlobe } from './grid-globe';
-import MagicButton from './magic-button';
+import React from 'react';
 
 export const BentoGrid = ({
     className,
@@ -31,143 +24,119 @@ export const BentoGrid = ({
 };
 
 export const BentoGridItem = ({
-    id,
+    children,
     className,
-    title,
-    description,
-    image,
-    imageClassName,
-    spareImage,
-    titleClassName,
 }: {
-    id: number;
+    children: React.ReactNode;
     className?: string;
-    title?: string | React.ReactNode;
-    description?: string | React.ReactNode;
-    image?: string;
-    imageClassName?: string;
-    spareImage?: string;
-    titleClassName?: string;
 }) => {
-    const [copied, setCopied] = useState(false);
-
-    const handleCopied = () => {
-        const email = 'mohammedalmassry2002@gmail.com';
-
-        navigator.clipboard.writeText(email);
-        setCopied(true);
-
-        setTimeout(() => setCopied(false), 2000);
-    };
     return (
         <div
             className={cn(
-                'card-shine-effect group/bento relative row-span-1 flex flex-col justify-between space-y-4 overflow-hidden rounded-xl border border-background-200 bg-background shadow shadow-background-100 hover:shadow-2xl',
+                'card-shine-effect group/bento relative row-span-1 flex h-full flex-col justify-between space-y-4 overflow-hidden rounded-xl border border-background-200 bg-background shadow shadow-background-100 hover:shadow-2xl',
                 className
             )}
         >
-            <div className={`${id === 6 && 'flex justify-center'} h-full`}>
-                <div className='absolute h-full w-full'>
-                    {image && (
-                        <Image
-                            width={700}
-                            height={700}
-                            src={image}
-                            alt={image}
-                            className={cn(
-                                imageClassName,
-                                'object-cover object-center'
-                            )}
-                        />
-                    )}
-                </div>
-                <div
-                    className={`absolute -bottom-4 right-0 md:-bottom-8 ${
-                        id === 5 && 'w-full opacity-80'
-                    }`}
-                >
-                    {spareImage && (
-                        <Image
-                            width={200}
-                            height={200}
-                            src={spareImage}
-                            alt={spareImage}
-                            className='h-full w-full object-cover object-center'
-                        />
-                    )}
-                </div>
-                {id === 6 && (
-                    <BackgroundGradientAnimation>
-                        <div className='pointer-events-none absolute inset-0 z-50 flex cursor-default items-center justify-center px-4 text-center text-3xl font-bold text-white md:text-4xl lg:text-6xl'></div>
-                    </BackgroundGradientAnimation>
-                )}
+            {children}
+        </div>
+    );
+};
 
-                <div
-                    className={cn(
-                        titleClassName,
-                        'relative flex min-h-40 flex-col p-5 px-5 md:h-full lg:p-10'
-                    )}
-                >
-                    <div className='z-10 text-sm font-light text-foreground-600 md:text-xs lg:text-base'>
-                        {description}
-                    </div>
-                    <div
-                        className={cn(
-                            'z-10 text-lg font-bold text-foreground-900 lg:text-2xl',
-                            id === 2 && 'text-center'
-                        )}
-                    >
-                        {title}
-                    </div>
+export const BentoGridHeader = ({
+    children,
+    className,
+}: {
+    children: React.ReactNode;
+    className?: string;
+}) => {
+    return (
+        <div
+            className={cn(
+                'relative flex min-h-40 flex-col p-5 px-5 md:h-full lg:p-10',
+                className
+            )}
+        >
+            {children}
+        </div>
+    );
+};
 
-                    {id === 2 && <GridGlobe />}
+export const BentoGridTitle = ({
+    children,
+    className,
+}: {
+    children: React.ReactNode;
+    className?: string;
+}) => {
+    return (
+        <div
+            className={cn(
+                'z-10 text-lg font-bold text-foreground-900 lg:text-2xl',
+                className
+            )}
+        >
+            {children}
+        </div>
+    );
+};
 
-                    {id === 3 && (
-                        <div className='absolute -right-3 flex w-fit gap-1 lg:-right-1 lg:gap-4'>
-                            <div className='flex flex-col gap-3 lg:gap-4'>
-                                {techStackLeft.map((item) => (
-                                    <div
-                                        key={item}
-                                        className='rounded-lg bg-background-200 px-2 py-2 text-center text-xs opacity-50 lg:px-2 lg:py-3 lg:text-sm lg:opacity-100'
-                                    >
-                                        {item}
-                                    </div>
-                                ))}
-                                <div className='rounded-lg bg-background-200 px-3 py-4 text-center' />
-                            </div>
-                            <div className='flex flex-col gap-3 lg:gap-4'>
-                                <div className='rounded-lg bg-background-200 px-3 py-4 text-center' />
-                                {techStackRight.map((item) => (
-                                    <div
-                                        key={item}
-                                        className='rounded-lg bg-background-200 px-2 py-2 text-center text-xs opacity-50 lg:px-2 lg:py-3 lg:text-sm lg:opacity-100'
-                                    >
-                                        {item}
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    )}
+export const BentoGridDescription = ({
+    children,
+    className,
+}: {
+    children: React.ReactNode;
+    className?: string;
+}) => {
+    return (
+        <div
+            className={cn(
+                'z-10 text-sm font-light text-foreground-600 md:text-xs lg:text-base',
+                className
+            )}
+        >
+            {children}
+        </div>
+    );
+};
 
-                    {id === 6 && (
-                        <div className='relative mt-2'>
-                            <div className={cn('absolute -bottom-32 right-0')}>
-                                <Lottie
-                                    options={{
-                                        loop: copied,
-                                        autoplay: copied,
-                                        animationData: confettiAnimation,
-                                    }}
-                                />
-                            </div>
-                            <MagicButton className='' onClick={handleCopied}>
-                                <IoCopyOutline />{' '}
-                                {copied ? 'Email Copied' : 'Copy My Email'}
-                            </MagicButton>
-                        </div>
-                    )}
-                </div>
-            </div>
+export const BentoGridImage = ({
+    imageSrc,
+    className,
+}: {
+    imageSrc: string;
+    className?: string;
+}) => {
+    return (
+        <div className='absolute h-full w-full'>
+            <Image
+                width={700}
+                height={700}
+                src={imageSrc}
+                alt={imageSrc}
+                className={cn('object-cover object-center', className)}
+            />
+        </div>
+    );
+};
+
+export const BentoGridSpareImage = ({
+    imageSrc,
+    className,
+}: {
+    imageSrc: string;
+    className?: string;
+}) => {
+    return (
+        <div
+            className={cn('absolute -bottom-4 right-0 md:-bottom-8', className)}
+        >
+            <Image
+                width={200}
+                height={200}
+                src={imageSrc}
+                alt={imageSrc}
+                className='h-full w-full object-cover object-center'
+            />
         </div>
     );
 };
