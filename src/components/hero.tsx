@@ -6,7 +6,7 @@ import { TextGenerateEffect } from './ui/text-generate-effect';
 
 const Hero = () => {
     return (
-        <div className='grid h-screen grid-cols-1 content-center'>
+        <div className='relative grid h-screen grid-cols-1 content-center'>
             <BackgroundBeams />
             {/* Spotlights */}
             <div>
@@ -27,7 +27,7 @@ const Hero = () => {
             {/* Content */}
             <div className='relative z-10 flex justify-center'>
                 <div className='flex max-w-[89vw] flex-col items-center justify-center md:max-w-2xl lg:max-w-[60vw]'>
-                    <h2 className='text-foreground-900 max-w-80 text-center text-sm font-light uppercase tracking-widest md:text-base'>
+                    <h2 className='max-w-80 text-center text-sm font-light uppercase tracking-widest text-foreground-900 md:text-base'>
                         Dynamic Web Majic with Next.js
                     </h2>
                     <TextGenerateEffect
