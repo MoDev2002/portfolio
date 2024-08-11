@@ -230,3 +230,37 @@
     transition-duration: 1.5s;
 }
 
+.bubble {
+    width: 40px;
+    height: 40px;
+    border-radius: 1000%;
+    background: var(--foreground-800);
+    background: radial-gradient(
+        circle,
+        transparent 30%,
+        var(--primary-400) 75%,
+        var(--primary-100) 85%
+    );
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: float 10s ease-in-out infinite;
+    transition: box-shadow 0.3s ease;
+}
+
+.bubble:hover {
+    box-shadow: 0 0 10px var(--primary-200);
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
